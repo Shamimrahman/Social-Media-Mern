@@ -1,11 +1,35 @@
 import React from "react";
-
+import useStyles from "./styles";
+import { Typography, Container, AppBar, Grow, Grid } from "@material-ui/core";
+import Posts from "./components/Posts/Posts.";
+import Form from "./components/Form/Form";
 const App = () => {
+  const classes = useStyles();
   return (
-    <div>
-      <h1>Mern Creator</h1>
-      <h1></h1>
-    </div>
+    <Container maxWidth="lg">
+      <AppBar className={classes.appBar} position="static" color="inherit">
+        <Typography className={classes.heading} variant="h2" align="center">
+          Memories
+        </Typography>
+      </AppBar>
+      <Grow in>
+        <Container>
+          <Grid
+            container
+            justify="space-between"
+            alignItems="stretch"
+            spacing={3}
+          >
+            <Grid item xs={12} sm={7}>
+              <Posts />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Form />
+            </Grid>
+          </Grid>
+        </Container>
+      </Grow>
+    </Container>
   );
 };
 
